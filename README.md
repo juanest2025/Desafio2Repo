@@ -1,5 +1,7 @@
 # UdeATunes - Sistema de Streaming Musical
 
+Link del video youtube:
+
 ## Descripción
 
 **UdeATunes** es un plataforma de servicio de streaming musical desarrollado en C++ utilizando programación orientada a objetos (POO), sin hacer uso de la STL (Standard Template Library). El sistema permite gestionar usuarios, artistas, álbumes, canciones y publicidad, ofreciendo funciones específicas según el tipo de usuario (estándar o premium). El programa se ejecuta en consola y gestiona los datos mediante archivos.
