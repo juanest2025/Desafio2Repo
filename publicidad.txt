@@ -1,0 +1,6 @@
+ID_Publicidad,ID_Artista,Nombre_Artista,ID_Album,Mensaje
+1,57526,Taylor Swift,AL001,¡La noche es tuya!  Descubre el nuevo álbum de @taylorswift13, 'Midnights', disponible ahora en todas las plataformas. #Midnights #TaylorSwift
+2,24793,Bad Bunny,AL002,¡Verano sin ti no es verano!  Disfruta del nuevo álbum de @badbunnypr, 'Un Verano Sin Ti', lleno de ritmos que te harán bailar. #UnVeranoSinTi #BadBunny
+3,01842,Adele,AL003,La voz que emociona.  El nuevo álbum de @adele, '30', ya está disponible. Déjate llevar por sus melodías que llegan al alma. #30 #Adele
+4,32794,Dua Lipa,AL004,¡El futuro es nostálgico!  La reina del pop, @dua_lipa, presenta su álbum 'Future Nostalgia'. ¡No te pierdas sus éxitos! #FutureNostalgia #DuaLipa
+5,53256,Ed Sheeran,AL005,Divide tu corazón con la música de @edsheeran.  Su álbum '÷' está lleno de historias que te resonarán. ¡Escúchalo ahora! #Divide #EdSheeran
