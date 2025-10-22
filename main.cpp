@@ -1,14 +1,29 @@
+#include <fstream>
+#include <sstream>
+#include <vector>
 #include "Usuario.h"
 #include "Album.h"
 #include "Publicidad.h"
+using namespace std;
+
+void cargarUsuarios() {
+    ifstream archivo("usuarios.txt");
+    string linea;
+    while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        string nick, tipo, ciudad, fecha;
+        getline(ss, nick, ',');
+        getline(ss, tipo, ',');
+        getline(ss, ciudad, ',');
+        getline(ss, fecha, ',');
+        Usuario u(nick, tipo, ciudad, fecha);
+        u.mostrarInfo();
+        cout << endl;
+    }
+    archivo.close();
+}
 
 int main() {
-    Usuario u("juanest34", "estandar", "Medellín", "08-04-2023");
-    u.mostrarInfo();
-
-    Album a("AL001", "57526", "Midnights", "Pop/Synth-Pop", "2022-10-21", 2304, "Republic", 9.5, "midnights.png");
-    a.mostrarInfo();
-
-    Publicidad p(1, "57526", "Taylor Swift", "AL001", "¡La noche es tuya!", 'A');
-    p.mostrarInfo();
+    cout << "=== Prueba de carga de usuarios ===\n";
+    cargarUsuarios();
 }
