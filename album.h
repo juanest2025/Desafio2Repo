@@ -6,27 +6,31 @@ using namespace std;
 
 class Album {
 private:
-    string codigo;
-    string codigoArtista;
+    string id;
+    string artistaId;
     string nombre;
-    string generos;
     string fechaLanzamiento;
-    int duracionTotalSegundos;
+    float duracionTotal;
+    string generos;
     string sello;
-    float puntuacion;
     string portada;
+    float puntuacion;
 
 public:
-    Album(string c="", string ca="", string n="", string g="", string f="", int d=0, string s="", float p=0, string pt="");
+    Album(string id = "", string artistaId = "", string nombre = "",
+          string fecha = "", float duracion = 0.0,
+          string generos = "", string sello = "",
+          string portada = "", float puntuacion = 0.0);
 
     // Getters
-    string getCodigo() const;
+    string getId() const;
+    string getArtistaId() const;
     string getNombre() const;
     string getGeneros() const;
     string getPortada() const;
+    float getDuracion() const;
     float getPuntuacion() const;
 
-    // Métodos
     void mostrarInfo() const;
 };
 

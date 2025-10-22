@@ -6,23 +6,20 @@ using namespace std;
 
 class Publicidad {
 private:
-    int id;
-    string idArtista;
-    string nombreArtista;
-    string idAlbum;
+    string codigo;
+    char prioridad;  // C, B, o A
     string mensaje;
-    char categoria; // C, B o A
 
 public:
-    Publicidad(int id=0, string art="", string nom="", string alb="", string msg="", char cat='C');
+    Publicidad(string codigo = "", char prioridad = 'C', string mensaje = "");
 
     // Getters
-    int getId() const;
-    char getCategoria() const;
+    string getCodigo() const;
+    char getPrioridad() const;
     string getMensaje() const;
 
     // Métodos
-    int obtenerPrioridad() const;
+    int obtenerProbabilidad() const; // C=1, B=2, A=3
     void mostrarInfo() const;
 };
 

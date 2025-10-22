@@ -6,28 +6,26 @@ using namespace std;
 
 class Usuario {
 private:
-    string nickname;
-    string tipo; // "estandar" o "premium"
+    string id;
+    string nombre;
+    string tipo;   //premium o estandar
     string ciudad;
+    string pais;
     string fechaInscripcion;
 
 public:
-    // Constructor
-    Usuario(string nickname="", string tipo="", string ciudad="", string fechaInscripcion="");
+    Usuario(string id = "", string nombre = "", string tipo = "",
+            string ciudad = "", string pais = "", string fecha = "");
 
     // Getters
-    string getNickname() const;
+    string getId() const;
+    string getNombre() const;
     string getTipo() const;
     string getCiudad() const;
-    string getFechaInscripcion() const;
+    string getPais() const;
+    string getFecha() const;
 
-    // Setters
-    void setNickname(string n);
-    void setTipo(string t);
-    void setCiudad(string c);
-    void setFechaInscripcion(string f);
-
-    // Métodos adicionales
+    // Métodos
     bool esPremium() const;
     void mostrarInfo() const;
 };

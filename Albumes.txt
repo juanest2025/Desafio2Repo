@@ -1,0 +1,4 @@
+album_id;artista_id;nombre;fecha_lanzamiento;duracion_total;generos;sello;portada;puntuacion
+12;10001;Lugar Secreto;2018-09-15;38.5;Pop,Latina;Sony Music;/users/storage/claudia_lorelle/image/lugar_secreto.png;9.2
+13;10001;Raíces;2021-05-03;42.8;Pop,Rock;Sony Music;/users/storage/claudia_lorelle/image/raices.png;8.7
+

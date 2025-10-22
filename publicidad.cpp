@@ -2,26 +2,25 @@
 #include <iostream>
 using namespace std;
 
-Publicidad::Publicidad(int id, string art, string nom, string alb, string msg, char cat)
-    : id(id), idArtista(art), nombreArtista(nom), idAlbum(alb), mensaje(msg), categoria(cat) {}
+Publicidad::Publicidad(string codigo, char prioridad, string mensaje)
+    : codigo(codigo), prioridad(prioridad), mensaje(mensaje) {}
 
-int Publicidad::getId() const { return id; }
-char Publicidad::getCategoria() const { return categoria; }
+string Publicidad::getCodigo() const { return codigo; }
+char Publicidad::getPrioridad() const { return prioridad; }
 string Publicidad::getMensaje() const { return mensaje; }
 
-int Publicidad::obtenerPrioridad() const {
-    switch (categoria) {
-    case 'C': return 1;
-    case 'B': return 2;
-    case 'A': return 3;
-    default: return 1;
+int Publicidad::obtenerProbabilidad() const {
+    switch (prioridad) {
+        case 'C': return 1;
+        case 'B': return 2;
+        case 'A': return 3;
+        default: return 1;
     }
 }
 
 void Publicidad::mostrarInfo() const {
-    cout << "Publicidad ID: " << id
-         << "\nArtista: " << nombreArtista
-         << "\nÁlbum: " << idAlbum
-         << "\nCategoría: " << categoria
-         << "\nMensaje: " << mensaje << endl;
+    cout << "Código: " << codigo
+         << "\nPrioridad: " << prioridad
+         << "\nMensaje: " << mensaje
+         << "\nProbabilidad: " << obtenerProbabilidad() << endl;
 }

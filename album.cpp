@@ -2,21 +2,31 @@
 #include <iostream>
 using namespace std;
 
-Album::Album(string c, string ca, string n, string g, string f, int d, string s, float p, string pt)
-    : codigo(c), codigoArtista(ca), nombre(n), generos(g), fechaLanzamiento(f),
-    duracionTotalSegundos(d), sello(s), puntuacion(p), portada(pt) {}
+Album::Album(string id, string artistaId, string nombre,
+             string fecha, float duracion,
+             string generos, string sello,
+             string portada, float puntuacion)
+    : id(id), artistaId(artistaId), nombre(nombre),
+      fechaLanzamiento(fecha), duracionTotal(duracion),
+      generos(generos), sello(sello),
+      portada(portada), puntuacion(puntuacion) {}
 
-string Album::getCodigo() const { return codigo; }
+string Album::getId() const { return id; }
+string Album::getArtistaId() const { return artistaId; }
 string Album::getNombre() const { return nombre; }
 string Album::getGeneros() const { return generos; }
 string Album::getPortada() const { return portada; }
+float Album::getDuracion() const { return duracionTotal; }
 float Album::getPuntuacion() const { return puntuacion; }
 
 void Album::mostrarInfo() const {
     cout << "Álbum: " << nombre
+         << "\nID: " << id
+         << "\nArtista ID: " << artistaId
+         << "\nFecha de lanzamiento: " << fechaLanzamiento
+         << "\nDuración: " << duracionTotal << " min"
          << "\nGéneros: " << generos
          << "\nSello: " << sello
-         << "\nDuración total: " << duracionTotalSegundos << " s"
          << "\nPuntuación: " << puntuacion
          << "\nPortada: " << portada << endl;
 }
