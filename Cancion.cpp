@@ -47,7 +47,7 @@ void Cancion::setVecesReproducida(int n) { veces_reproducida = n; }
 
 // Mostrar datos
 void Cancion::mostrarDatos() const {
-    cout << "🎵 ID: " << id_cancion << endl;
+    cout << "ID: " << id_cancion << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Duración: " << duracion << " min" << endl;
     cout << "Ruta 128 kbps: " << ruta128 << endl;
