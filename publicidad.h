@@ -19,7 +19,7 @@ public:
     string getMensaje() const;
 
     //metodos
-    int obtenerProbabilidad() const; //C=1,B=2,A=3
+    int obtenerProbabilidad() const; //C=1,B=2,AAA=3
     void mostrarInfo() const;
 };
 

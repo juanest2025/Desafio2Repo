@@ -13,7 +13,7 @@ int Publicidad::obtenerProbabilidad() const {
     switch (prioridad) {
         case 'C': return 1;
         case 'B': return 2;
-        case 'A': return 3;
+        case 'AAA': return 3;
         default: return 1;
     }
 }
