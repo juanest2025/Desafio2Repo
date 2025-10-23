@@ -17,7 +17,7 @@ public:
     Usuario(string id = "", string nombre = "", string tipo = "",
             string ciudad = "", string pais = "", string fecha = "");
 
-    // Getters
+    //getters
     string getId() const;
     string getNombre() const;
     string getTipo() const;
@@ -25,7 +25,7 @@ public:
     string getPais() const;
     string getFecha() const;
 
-    // Métodos
+    //metodos
     bool esPremium() const;
     void mostrarInfo() const;
 };

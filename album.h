@@ -22,7 +22,7 @@ public:
           string generos = "", string sello = "",
           string portada = "", float puntuacion = 0.0);
 
-    // Getters
+    //getters
     string getId() const;
     string getArtistaId() const;
     string getNombre() const;
