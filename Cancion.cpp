@@ -1,11 +1,11 @@
-#include "Canciones.h"
+#include "Cancion.h"
 #include <iostream>
 #include <string>
 #include <chrono>
 #include <thread>
 using namespace std;
 
-// Constructor por defecto
+
 Cancion::Cancion() {
     id_cancion = 0;
     nombre = "";
@@ -19,7 +19,7 @@ Cancion::Cancion() {
     compositores = "";
 }
 
-// Constructor con parámetros
+
 Cancion::Cancion(long long id, string nom, float dur, string r128, string r320,string port, int rep, string prod, string mus, string comp) {
     id_cancion = id;
     nombre = nom;
@@ -33,7 +33,7 @@ Cancion::Cancion(long long id, string nom, float dur, string r128, string r320,s
     compositores = comp;
 }
 
-// Getters
+
 long long Cancion::getIdCancion() const { return id_cancion; }
 string Cancion::getNombre() const { return nombre; }
 float Cancion::getDuracion() const { return duracion; }
@@ -42,10 +42,10 @@ string Cancion::getRuta320() const { return ruta320; }
 string Cancion::getPortada() const { return portada; }
 int Cancion::getVecesReproducida() const { return veces_reproducida; }
 
-// Setter
+
 void Cancion::setVecesReproducida(int n) { veces_reproducida = n; }
 
-// Mostrar datos
+
 void Cancion::mostrarDatos() const {
     cout << "ID: " << id_cancion << endl;
     cout << "Nombre: " << nombre << endl;
@@ -59,7 +59,7 @@ void Cancion::mostrarDatos() const {
     cout << "Compositores: " << compositores << endl;
 }
 
-// Reproducir canción
+
 void Cancion::reproducir(const string& tipoUsuario) {
     cout << "\n Reproduciendo: " << nombre << endl;
     cout << "Portada: " << portada << endl;

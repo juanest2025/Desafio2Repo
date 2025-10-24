@@ -1,12 +1,12 @@
-#ifndef CANCIONES_H
-#define CANCIONES_H
+#ifndef CANCION_H
+#define CANCION_H
 #include <iostream>
 #include <string>
 #include <chrono>
 #include <thread>
 using namespace std;
 
-class Canciones{
+class Cancion{
 private:
     long long id_cancion;
     string nombre;
@@ -22,11 +22,11 @@ private:
     string compositores;
 
 public:
-    // Constructores
-    Canciones();
-    Canciones(long long id, string nom, float dur, string r128, string r320,string port, int rep, string prod, string mus, string comp);
 
-    // Getters
+    Cancion();
+    Cancion(long long id, string nom, float dur, string r128, string r320,string port, int rep, string prod, string mus, string comp);
+
+
     long long getIdCancion() const;
     string getNombre() const;
     float getDuracion() const;
@@ -35,13 +35,11 @@ public:
     string getPortada() const;
     int getVecesReproducida() const;
 
-    // Setters
+   
     void setVecesReproducida(int n);
 
-    // Mostrar información
     void mostrarDatos() const;
-
-    // Reproducción
+    
     void reproducir(const string& tipoUsuario);
 };
 
