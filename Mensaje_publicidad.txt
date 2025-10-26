@@ -1,5 +1,0 @@
-codigo;prioridad;mensaje
-A001;C;Descubre nuevos artistas en la sección de tendencias.
-A002;B;¡Escucha tus canciones favoritas sin interrupciones! Pásate a Premium.
-A003;AAA;Oferta limitada: suscríbete hoy y obtén 2 meses gratis.
-

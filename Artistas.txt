@@ -1,4 +1,0 @@
-artista_id;nombre;edad;pais;seguidores;posicion_global
-10001;Claudia Lorelle;29;Colombia;120000;7
-10002;The Sound Waves;32;EEUU;250000;3
-

@@ -1,0 +1,6 @@
+album_id;nombre;fecha_lanzamiento;duracion_total;generos;sello_disquero;portada;puntuacion;artista_id;ids_canciones
+05;Susurros del Corazón;2020-05-12;20.38;Pop,Latina;Luna Records;/users/storage/claudia_lorelle/image/album_susurros.png;8.7;10001;100010512,100010502,100010553,100010534
+12;Horizontes;2021-03-18;16.33;Rock,Pop;Solar Beat;/users/storage/mateo_hernandez/image/album_horizontes.png;8.5;10931;109311265,109311296,109311227,109311238
+93;Reflejos del Alba;2022-07-25;16.08;Pop,Blues;Golden Track;/users/storage/valeria_rojas/image/album_reflejos.png;9.1;12451;124519379,124519310,124519321,124519382
+58;Arena Dorada;2023-04-10;16.10;Pop,Rock,Latina;Aurora Music;/users/storage/lina_montoya/image/album_arena.png;8.8;15671;156715893,156715814,156715845,156715816
+54;Ecos del Sol;2024-01-22;20.39;Jazz,Electrónica,Pop;Vibra Studio;/users/storage/andrea_lopez/image/album_ecos.png;9.4;16921;169215477,169215418,169215469,169215425,169215421

@@ -1,4 +1,0 @@
-usuario_id;nombre_usuario;tipo;ciudad;pais;fecha_inscripcion
-U0001;ricardo;premium;Bogotá;Colombia;2025-10-22
-U0002;maria;estandar;Medellín;Colombia;2025-10-20
-
