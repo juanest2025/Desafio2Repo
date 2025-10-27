@@ -72,11 +72,11 @@ Link del video youtube:
 
 
 ### Archivos de entrada esperados:
-- **usuarios.txt**: Información de los usuarios.
-- **artistas.txt**: Información de los artistas y sus álbumes.
-- **albumes.txt**: Información de los álbumes y sus canciones.
-- **canciones.txt**: Información detallada sobre las canciones.
-- **publicidad.txt**: Información sobre los anuncios disponibles.
+- **usuarios.csv**: Información de los usuarios.
+- **artistas.csv**: Información de los artistas y sus álbumes.
+- **albumes.csv**: Información de los álbumes y sus canciones.
+- **canciones.csv**: Información detallada sobre las canciones.
+- **publicidad.csv**: Información sobre los anuncios disponibles.
 
 ## Eficiencia y Medición de Recursos
 
