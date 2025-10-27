@@ -1,26 +1,26 @@
 #ifndef PUBLICIDAD_H
 #define PUBLICIDAD_H
 
+#include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class Publicidad {
 private:
-    string codigo;
-    char prioridad;  //C,B,A
-    string mensaje;
+    char* mensajes[50];   // arreglo de punteros a char
+    int contador;          // cantidad de mensajes cargados
 
 public:
-    Publicidad(string codigo = "", char prioridad = 'C', string mensaje = "");
+    Publicidad();          // constructor
+    ~Publicidad();         // destructor
 
-    //getters
-    string getCodigo() const;
-    char getPrioridad() const;
-    string getMensaje() const;
-
-    //metodos
-    int obtenerProbabilidad() const; //C=1,B=2,AAA=3
-    void mostrarInfo() const;
+    bool cargarMensajes(const string& nombreArchivo);
+    void mostrarMensajeAleatorio() const;
+    int getNumAle(int limite) const;
 };
 
-#endif
+#endif // PUBLICIDAD_H

@@ -1,5 +1,8 @@
 usuario_id;nombre_usuario;tipo;ciudad;pais;fecha_inscripcion
 U0001;ricardo;true;Bogotá;Colombia;2025-10-22
-U0002;maria;false;Medellín;Colombia;2025-10-20
+U0002;maria;true;Medellín;Colombia;2025-10-20
 AV123;juan;true;Cartagena;Colombia;2023-11-31
 C2134;valeria;false;Monteria;Venezuela;2025-05-03
+AS267;cristian;false;Medellín;Colombia;2023-03-29
+1234B;juan;false;Bogotá;Colombia;2024-12-25
+123W3;santiago;true;Bogotá;Colombia;2021-13-25

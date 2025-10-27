@@ -1,26 +1,67 @@
 #include "Publicidad.h"
-#include <iostream>
-using namespace std;
 
-Publicidad::Publicidad(string codigo, char prioridad, string mensaje)
-    : codigo(codigo), prioridad(prioridad), mensaje(mensaje) {}
-
-string Publicidad::getCodigo() const { return codigo; }
-char Publicidad::getPrioridad() const { return prioridad; }
-string Publicidad::getMensaje() const { return mensaje; }
-
-int Publicidad::obtenerProbabilidad() const {
-    switch (prioridad) {
-        case 'C': return 1;
-        case 'B': return 2;
-        case 'AAA': return 3;
-        default: return 1;
+Publicidad::Publicidad() {
+    contador = 0;
+    srand(time(0)); // inicializa semilla aleatoria
+    for (int i = 0; i < 50; i++) {
+        mensajes[i] = nullptr;
     }
 }
 
-void Publicidad::mostrarInfo() const {
-    cout << "Código: " << codigo
-         << "\nPrioridad: " << prioridad
-         << "\nMensaje: " << mensaje
-         << "\nProbabilidad: " << obtenerProbabilidad() << endl;
+Publicidad::~Publicidad() {
+    for (int i = 0; i < contador; ++i) {
+        delete[] mensajes[i];
+    }
+}
+
+int Publicidad::getNumAle(int limite) const {
+    return rand() % limite; // número entre 0 y limite-1
+}
+
+bool Publicidad::cargarMensajes(const string& nombreArchivo) {
+    ifstream archivo(nombreArchivo);
+    if (!archivo.is_open()) {
+        cerr << "No se pudo abrir el archivo: " << nombreArchivo << endl;
+        return false;
+    }
+
+    string linea;
+    while (getline(archivo, linea) && contador < 50) {
+        mensajes[contador] = new char[linea.length() + 1];
+        for (size_t i = 0; i < linea.length(); i++) {
+            mensajes[contador][i] = linea[i];
+        }
+        mensajes[contador][linea.length()] = '\0';
+        contador++;
+    }
+
+    archivo.close();
+    return true;
+}
+
+void Publicidad::mostrarMensajeAleatorio() const {
+    if (contador == 0) {
+        cout << "No hay mensajes cargados.\n";
+        return;
+    }
+
+    string mensaje2;
+    string prioridad, mensajePros;
+    int indice = getNumAle(contador);
+    if (indice == 0){
+        indice = 1;
+        mensaje2 = mensajes[indice];
+    }
+    else {
+
+         mensaje2 = mensajes[indice];
+    }
+
+    stringstream ss(mensaje2);
+    getline(ss, prioridad, ';');
+    getline(ss, mensajePros, ';');
+
+    cout << "Mensaje #" << indice << endl;
+    cout << "Prioridad: " << prioridad << endl;
+    cout << "Contenido: " << mensajePros << endl;
 }

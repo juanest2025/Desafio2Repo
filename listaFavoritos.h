@@ -1,33 +1,39 @@
 #ifndef LISTAFAVORITOS_H
 #define LISTAFAVORITOS_H
 
-#include <iostream>
 #include <string>
-#include "Cancion.h"
-using namespace std;
+using std::string;
 
 class ListaFavoritos {
 private:
-    string usuario_id;           //ID del usuario propietario de la lista
-    string nombre_lista;         //nombre de la lista (ej. "Favoritas")
-    int ids_canciones[10000];    //IDs de canciones guardadas
-    int cantidad_canciones;      //número actual de canciones en la lista
-    bool esPremium;              //tipo de usuario: true = premium
+    static const int MAX_LINEAS = 100;
+    static const int MAX_LONG = 1024;
+
+    char* lineas[MAX_LINEAS];
+    int numLineas;
+    string archivo;
 
 public:
-    //constructor
-    ListaFavoritos(string usuario_id, string nombre_lista, bool esPremium);
+    // Constructor
+    ListaFavoritos(const string& nombreArchivo = "ListaFavoritos.csv");
 
-    //métodos principales
-    void agregarCancion(int id_cancion);
-    void eliminarCancion(int id_cancion);
-    void mostrarLista();
-    void reproducirLista(Cancion* canciones, int totalCanciones);  //reproduce todas las canciones de la lista
+    // Destructor
+    ~ListaFavoritos();
 
-    //métodos auxiliares
-    int buscarCancion(int id_cancion);
-    int getCantidadCanciones() const { return cantidad_canciones; }
-    string getNombreLista() const { return nombre_lista; }
+    // Métodos públicos
+    bool copiarCanciones(const string& usuario_destino, const string& usuario_origen);
+    void mostrarLista(const string& usuario_id);
+    // Métodos auxiliares privados
+    int contarTokens(const string& str, char delim);
+    char** split(const string& str, int& numTokens, char delim);
+    bool existe(char** arr, int n, const string& id);
+    string join(char** arr, int n, char delim);
+    int buscarUsuario(const string& usuario_id);
+    char** obtenerCanciones(int idx, int& n);
+    void actualizarLinea(int idx, char** canciones, int n);
+    bool cargarArchivo();
+    bool guardarArchivo();
+
 };
 
-#endif
+#endif // LISTAFAVORITOS_H
