@@ -27,13 +27,13 @@ public:
     GestorDatos();
     ~GestorDatos();
 
-    bool cargarAlbumes(const char* archivo);
-    bool cargarArtistas(const char* archivo);
-    bool cargarListas(const char* archivo);
+    bool cargarAlbum(const char* archivo);
+    bool cargarArtista(const char* archivo);
+    bool cargarLista(const char* archivo);
 
-    int getNumAlbumes() const;
-    int getNumArtistas() const;
-    int getNumListas() const;
+    int getNumAlbum() const;
+    int getNumArtista() const;
+    int getNumLista() const;
 
     string getAlbum(int i) const;
     string getArtista(int i) const;

@@ -38,11 +38,11 @@ void ReproduccionPremium::mostrarCancion(int indice, bool formato320) {
     }
     partes[campo] = temp;
 
-    cout << "\n🎶 Reproduciendo: " << partes[1] << " (" << (formato320 ? "320 kbps" : "128 kbps") << ")\n";
+    cout << "\nReproduciendo: " << partes[1] << " (" << (formato320 ? "320 kbps" : "128 kbps") << ")\n";
     cout << "Ruta: " << partes[3] << endl;
     cout << "Portada: " << partes[4] << endl;
     esperarSegundos(3);
-    cout << "✅ Canción terminada.\n";
+    cout << "Canción terminada.\n";
 }
 
 void ReproduccionPremium::reproducirAleatoria320() {
@@ -71,7 +71,7 @@ void ReproduccionPremium::siguiente() {
 
 void ReproduccionPremium::anterior() {
     if (indiceHistorial <= 1) {
-        cout << "🚫 No hay canciones anteriores.\n";
+        cout << " No hay canciones anteriores.\n";
         return;
     }
     indiceHistorial--;
@@ -82,7 +82,7 @@ void ReproduccionPremium::anterior() {
 void ReproduccionPremium::activarRepetir(bool estado) {
     repetir = estado;
     if (repetir && actual != -1) {
-        cout << "🔁 Repetición activada.\n";
+        cout << "Repetición activada.\n";
         while (repetir) {
             mostrarCancion(actual, true);
             cout << "¿Seguir repitiendo? (1=Sí / 0=No): ";
@@ -91,7 +91,8 @@ void ReproduccionPremium::activarRepetir(bool estado) {
             if (opcion == 0) repetir = false;
         }
     } else {
-        cout << "🔁 Repetición desactivada.\n";
+        cout << " Repetición desactivada.\n";
     }
 }
+
 

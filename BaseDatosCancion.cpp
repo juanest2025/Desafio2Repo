@@ -43,10 +43,10 @@ string BaseDatosCancion::extraerCampos128(const string& linea) {
     }
     campos[campoIndex] = temp;
 
-    // Validación simple por si faltan campos
+    //validación si faltan campos
     if (campoIndex < 5) return "";
 
-    // Campos que nos interesan: 0=id, 1=nombre, 2=duración, 3=ruta128, 5=portada
+    //campos 0=id, 1=nombre, 2=duración, 3=ruta128, 5=portada
     string resultado = campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[5];
     return resultado;
 }
@@ -66,10 +66,10 @@ string BaseDatosCancion::extraerCampos320(const string& linea) {
     }
     campos[campoIndex] = temp;
 
-    // Validación simple por si faltan campos
+    //validación si faltan campos
     if (campoIndex < 5) return "";
 
-    // Campos que nos interesan: 0=id, 1=nombre, 2=duración, 4=ruta320, 5=portada
+    // Campos 0=id, 1=nombre, 2=duración, 4=ruta320, 5=portada
     string resultado = campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[4] + ";" + campos[5];
     return resultado;
 }
@@ -97,7 +97,7 @@ bool BaseDatosCancion::cargarCSV() {
     }
 
     string linea;
-    getline(archivo, linea); // Saltar encabezado
+    getline(archivo, linea); //saltar encabezado
 
     while (getline(archivo, linea)) {
         if (linea.empty()){
@@ -107,7 +107,7 @@ bool BaseDatosCancion::cargarCSV() {
         string datos128 = extraerCampos128(linea);
         string datos320 = extraerCampos320(linea);
         if (datos128.empty() || datos320.empty()){
-            continue; // línea mal formada
+            continue; //línea mal formada
 
         }
         if (numCanciones >= capacidad){

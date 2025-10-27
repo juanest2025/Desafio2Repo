@@ -23,20 +23,20 @@ void ReproduccionEstandar::esperarSegundos(int segundos) {
 
 void ReproduccionEstandar::reproducirAleatoria128() {
     if (!base || !gestor) {
-        cout << "⚠️ Bases de datos no enlazadas.\n";
+        cout << "Bases de datos no enlazadas.\n";
         return;
     }
 
     int total = base->getNumCanciones();
     if (total == 0) {
-        cout << "⚠️ No hay canciones disponibles.\n";
+        cout << "No hay canciones disponibles.\n";
         return;
     }
 
     int indice = rand() % total;
     string datos = base->getCancion128(indice);
 
-    // separar los campos manualmente
+    //separar los campos manualmente
     string partes[5];
     string temp = "";
     int campo = 0;
@@ -55,8 +55,8 @@ void ReproduccionEstandar::reproducirAleatoria128() {
     string ruta = partes[3];
     string portada = partes[4];
 
-    // Mostrar datos
-    cout << "\n🎵 Reproduciendo canción aleatoria (128 kbps):\n";
+    //mostrar datos
+    cout << "\n Reproduciendo canción aleatoria (128 kbps):\n";
     cout << "Título: " << titulo << endl;
     cout << "Duración: " << duracion << endl;
     cout << "Ruta audio: " << ruta << endl;
@@ -64,5 +64,5 @@ void ReproduccionEstandar::reproducirAleatoria128() {
 
     cout << "\nReproduciendo...";
     esperarSegundos(3);
-    cout << "\n✅ Canción terminada.\n";
+    cout << "\nCanción terminada.\n";
 }

@@ -30,7 +30,7 @@ void GestorDatos::aumentarCapacidad(string*& arreglo, int& capacidad) {
     capacidad = nuevaCap;
 }
 
-bool GestorDatos::cargarAlbumes(const char* archivo) {
+bool GestorDatos::cargarAlbum(const char* archivo) {
     ifstream file(archivo);
     if (!file.is_open()) {
         cerr << "Error al abrir: " << archivo << endl;
@@ -38,7 +38,7 @@ bool GestorDatos::cargarAlbumes(const char* archivo) {
     }
 
     string linea;
-    getline(file, linea); // saltar encabezado
+    getline(file, linea); //saltar encabezado
 
     while (getline(file, linea)) {
         if (linea.empty()) continue;
@@ -73,7 +73,7 @@ bool GestorDatos::cargarAlbumes(const char* archivo) {
     return true;
 }
 
-bool GestorDatos::cargarArtistas(const char* archivo) {
+bool GestorDatos::cargarArtista(const char* archivo) {
     ifstream file(archivo);
     if (!file.is_open()) {
         cerr << "Error al abrir: " << archivo << endl;
@@ -81,7 +81,7 @@ bool GestorDatos::cargarArtistas(const char* archivo) {
     }
 
     string linea;
-    getline(file, linea); // encabezado
+    getline(file, linea); //encabezado
 
     while (getline(file, linea)) {
         if (linea.empty()) continue;
@@ -113,7 +113,7 @@ bool GestorDatos::cargarArtistas(const char* archivo) {
     return true;
 }
 
-bool GestorDatos::cargarListas(const char* archivo) {
+bool GestorDatos::cargarLista(const char* archivo) {
     ifstream file(archivo);
     if (!file.is_open()) {
         cerr << "Error al abrir: " << archivo << endl;
@@ -121,7 +121,7 @@ bool GestorDatos::cargarListas(const char* archivo) {
     }
 
     string linea;
-    getline(file, linea); // encabezado
+    getline(file, linea); //encabezado
 
     while (getline(file, linea)) {
         if (linea.empty()) continue;
@@ -144,15 +144,15 @@ bool GestorDatos::cargarListas(const char* archivo) {
     return true;
 }
 
-int GestorDatos::getNumAlbumes() const
+int GestorDatos::getNumAlbum() const
 {
     return numAlbumes;
 }
-int GestorDatos::getNumArtistas() const
+int GestorDatos::getNumArtista() const
 {
     return numArtistas;
 }
-int GestorDatos::getNumListas() const
+int GestorDatos::getNumLista() const
 {
     return numListas;
 }

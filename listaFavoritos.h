@@ -14,16 +14,16 @@ private:
     string archivo;
 
 public:
-    // Constructor
+    //constructor
     ListaFavoritos(const string& nombreArchivo = "ListaFavoritos.csv");
 
-    // Destructor
+    //destructor
     ~ListaFavoritos();
 
-    // Métodos públicos
+    //métodos públicos
     bool copiarCanciones(const string& usuario_destino, const string& usuario_origen);
     void mostrarLista(const string& usuario_id);
-    // Métodos auxiliares privados
+    //métodos auxiliares privados
     int contarTokens(const string& str, char delim);
     char** split(const string& str, int& numTokens, char delim);
     bool existe(char** arr, int n, const string& id);

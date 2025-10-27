@@ -1,211 +1,3 @@
-
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <cstdlib>
-using namespace std;
-/*
-int main() {
-    const int MAX_LONG = 2048;  // mayor longitud por línea
-    int numLineas = 0;
-    char **lineas = nullptr;    // arreglo dinámico de líneas
-    const char *filename = "canciones2.csv";
-
-    // 1️⃣ Contar líneas en el archivo
-    ifstream entradaCont(filename);
-    if (!entradaCont) {
-        cout << "Error al abrir el archivo para conteo: " << filename << "\n";
-        return 1;
-    }
-
-    char buffer[MAX_LONG];
-    while (entradaCont.getline(buffer, MAX_LONG)) {
-        numLineas++;
-    }
-    entradaCont.close();
-
-    if (numLineas == 0) {
-        cout << "El archivo está vacío o no se leyó ninguna línea.\n";
-        return 1;
-    }
-
-    cout << "Líneas encontradas: " << numLineas << "\n";
-
-    // 2️⃣ Reservar memoria dinámica
-    lineas = new char*[numLineas];
-    for (int i = 0; i < numLineas; i++) {
-        lineas[i] = new char[MAX_LONG];
-        lineas[i][0] = '\0'; // inicializar
-    }
-
-    // 3️⃣ Volver a leer las líneas (usar otro ifstream para claridad)
-    ifstream entrada(filename);
-
-    int indice = 0;
-    while (indice < numLineas && entrada.getline(lineas[indice], MAX_LONG)) {
-        indice++;
-    }
-    entrada.close();
-
-    // 4️⃣ Pedir ID y nuevo valor
-    char idBuscado[9];
-    cout << "Ingrese el ID de la canción a modificar: ";
-    cin >> idBuscado;
-
-    int incremento;
-    cout << "Ingrese en cuánto aumentar las reproducciones: ";
-    cin >> incremento;
-
-    bool encontrado = false;
-
-    // 5️⃣ Buscar y modificar el campo "veces_reproducida"
-    for (int i = 0; i < numLineas; i++) {
-        // Saltar encabezado
-        if (i == 0 && strstr(lineas[i], "id_cancion") != nullptr)
-            continue;
-
-        // Obtener el ID hasta el primer ';'
-        char idLinea[32];
-        int j = 0;
-        while (lineas[i][j] != ';' && lineas[i][j] != '\0' && j < (int)sizeof(idLinea)-1) {
-            idLinea[j] = lineas[i][j];
-            j++;
-        }
-        idLinea[j] = '\0';
-
-        // Comparar con el ID buscado
-        if (strcmp(idLinea, idBuscado) == 0) {
-            encontrado = true;
-
-            // Buscar el campo 7 (veces_reproducida): contamos separadores ';'
-            int campo = 0, inicio = -1, fin = -1;
-            for (int k = 0; lineas[i][k] != '\0'; k++) {
-                if (lineas[i][k] == ';') {
-                    campo++;
-                    if (campo == 6) inicio = k + 1; // empieza el campo (después del separador)
-                    else if (campo == 7) { fin = k; break; } // termina el campo
-                }
-            }
-            // Si fin == -1 significa que el campo 7 es hasta el final de línea
-            if (inicio != -1 && fin == -1) fin = (int)strlen(lineas[i]);
-
-            if (inicio == -1 || fin <= inicio) {
-                cout << "No se pudo localizar correctamente el campo 'veces_reproducida' en la línea.\n";
-                break;
-            }
-
-            // Extraer el número actual
-            char numeroStr[32];
-            int pos = 0;
-            for (int k = inicio; k < fin && lineas[i][k] != '\0' && pos < (int)sizeof(numeroStr)-1; k++)
-                numeroStr[pos++] = lineas[i][k];
-            numeroStr[pos] = '\0';
-
-            int valor = atoi(numeroStr);
-            valor += incremento;
-
-            // Construir nueva línea: parte antes de inicio + nuevo valor + resto desde fin
-            char nuevaLinea[MAX_LONG];
-            // copia la parte antes del campo
-            if (inicio > 0) {
-                strncpy(nuevaLinea, lineas[i], inicio);
-                nuevaLinea[inicio] = '\0';
-            } else {
-                nuevaLinea[0] = '\0';
-            }
-
-            // nuevo valor y resto
-            char nuevoValor[32];
-            sprintf(nuevoValor, "%d", valor);
-            strcat(nuevaLinea, nuevoValor);
-
-            // añadir el resto (desde fin hasta final)
-            strcat(nuevaLinea, lineas[i] + fin);
-
-            // Reemplazar línea modificada
-            strncpy(lineas[i], nuevaLinea, MAX_LONG-1);
-            lineas[i][MAX_LONG-1] = '\0';
-
-            cout << "Canción con ID " << idBuscado << " actualizada a " << valor << " reproducciones.\n";
-            break;
-        }
-    }
-
-    if (!encontrado) {
-        cout << "No se encontró el ID indicado.\n";
-    } else {
-        // 6️⃣ Reescribir el archivo completo
-        ofstream salida(filename);
-        if (!salida) {
-            cout << "Error al abrir el archivo para escribir: " << filename << "\n";
-        } else {
-            for (int i = 0; i < numLineas; i++) {
-                salida << lineas[i] << "\n";
-            }
-            salida.close();
-            cout << "Archivo sobrescrito correctamente.\n";
-        }
-    }
-
-    // 7️⃣ Liberar memoria
-    for (int i = 0; i < numLineas; i++)
-        delete[] lineas[i];
-    delete[] lineas;
-
-    return 0;
-}
-*/
-
-/*
-#include "Publicidad.h"
-
-int main() {
-    Publicidad pub;
-
-    if (pub.cargarMensajes("Publicidad_mensaje.csv")) {
-        pub.mostrarMensajeAleatorio();
-    }
-
-    return 0;
-}*/
-
-//actualizaciones
-
-/*
-#include <iostream>
-#include "ActualizacionDatos.h"
-using namespace std;
-
-int main() {
-    ActualizacionDatos datos("canciones2.csv");
-
-    if (!datos.cargarArchivo()) {
-        cout << "No se pudo cargar el archivo.\n";
-        return 1;
-    }
-
-    char idBuscado[10];
-    cout << "Ingrese ID de canción: ";
-    cin >> idBuscado;
-
-    int incremento;
-    cout << "Ingrese incremento de reproducciones: ";
-    cin >> incremento;
-
-    if (datos.actualizarReproducciones(idBuscado, incremento)) {
-        if (datos.guardarArchivo())
-            cout << "Archivo actualizado correctamente.\n";
-        else
-            cout << "Error al guardar archivo.\n";
-    } else {
-        cout << "ID no encontrado.\n";
-    }
-
-    return 0;
-}
-*/
-
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -215,20 +7,9 @@ int main() {
 #include "GestorDatos.h"
 #include "ReproduccionEstandar.h"
 #include "ReproduccionPremium.h"
+#include "Publicidad.h"
+#include "ListaFavoritos.h"
 using namespace std;
-
-// --- Función para mostrar un anuncio aleatorio ---
-void mostrarAnuncio() {
-    const char* anuncios[5] = {
-        "¡Suscríbete a UdeATunes Premium y escucha sin anuncios!",
-        "Mejora tu experiencia musical con UdeATunes Premium.",
-        "Escucha tus canciones favoritas en 320 kbps.",
-        "Sin interrupciones, solo buena música. UdeATunes Premium.",
-        "Miles de artistas te esperan en UdeATunes Premium."
-    };
-    int indice = rand() % 5;
-    cout << "\n [ANUNCIO]: " << anuncios[indice] << endl;
-}
 
 int main() {
     srand(time(NULL));
@@ -300,8 +81,8 @@ int main() {
         return 1;
     }
     GestorDatos gestor;
-    gestor.cargarAlbumes("Albumes.csv");
-    gestor.cargarArtistas("Artistas.csv");
+    gestor.cargarAlbum("Album.csv");
+    gestor.cargarArtista("Artista.csv");
 
     int opcion = -1;
     int contadorCanciones = 0;
@@ -312,7 +93,7 @@ int main() {
         repEstandar.enlazarDatos(&base, &gestor);
 
         while (opcion != 0) {
-            cout << "\n--------menu estándar -------\n";
+            cout << "\n--------menu estandar -------\n";
             cout << "Hola, " << nombre << "!\n";
             cout << "1. Reproducción aleatoria (128 kbps)\n";
             cout << "0. Salir\n";
@@ -324,10 +105,15 @@ int main() {
                 contadorCanciones++;
                 repEstandar.reproducirAleatoria128();
 
-                // Cada 2 canciones -> anuncio
+                //cada 2 canciones anuncio
                 if (contadorCanciones % 2 == 0) {
-                    mostrarAnuncio();
+                    cout << "\n--- publicidad ---\n";
+                    Publicidad pup;
+                    pup.cargarMensajes("Publicidad.csv");
+                    pup.mostrarMensajeAleatorio();
+                    cout << "------------------\n";
                 }
+
             } else if (opcion != 0) {
                 cout << "\nOpción no válida.\n";
             }
@@ -346,6 +132,7 @@ int main() {
             cout << "2. Siguiente canción\n";
             cout << "3. Canción anterior\n";
             cout << "4. Repetir canción\n";
+            cout << "5. Lista de favoritos\n";
             cout << "0. Salir\n";
             cout << "-----------------------------\n";
             cout << "Seleccione una opción: ";
@@ -359,11 +146,142 @@ int main() {
                 repPremium.anterior();
             else if (opcion == 4)
                 repPremium.activarRepetir(true);
+            else if (opcion == 5) {
+                //lista favoritos
+                int subopcion = -1;
+                while (subopcion != 0) {
+                    cout << "\n-----lista de favoritos -----\n";
+                    cout << "1. Actualizar/editar mi lista\n";
+                    cout << "2. Seguir lista de otro usuario Premium\n";
+                    cout << "3. Ejecutar mi lista\n";
+                    cout << "0. Volver al menú anterior\n";
+                    cout << "------------------------------\n";
+                    cout << "Seleccione una opción: ";
+                    cin >> subopcion;
+
+                    switch (subopcion) {
+                    case 1: {
+                        cout << "\n---actualizar lista---\n";
+
+                        ListaFavoritos listaFav("ListaFavoritos.csv");
+                        if (!listaFav.cargarArchivo()) {
+                            cout << "Error al abrir ListaFavoritos.csv\n";
+                            break;
+                        }
+
+                        //mostrar la lista actual
+                        cout << "\nTu lista actual:\n";
+                        listaFav.mostrarLista(idIngresado);
+
+                        //pedir canciones nuevas
+                        cout << "\nIngrese los IDs de las canciones que desea agregar separados por coma (ej: C001,C002,C003)\n";
+                        cout << "O presione ENTER para no agregar ninguna: ";
+
+                        string nuevasCanciones;
+                        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpiar buffer seguro
+                        getline(cin, nuevasCanciones);
+
+                        if (nuevasCanciones.empty()) {
+                            cout << "\nNo se agregó ninguna canción.\n";
+                            break;
+                        }
+
+                        //buscar usuario
+                        int idx = listaFav.buscarUsuario(idIngresado);
+                        if (idx == -1) {
+                            //no existe crear nueva
+                            cout << "\nNo tienes una lista creada, se creará una nueva.\n";
+                            string nuevaLinea = idIngresado + ";MiLista;" + nuevasCanciones;
+                            ofstream salida("ListaFavoritos.csv", ios::app);
+                            if (salida.is_open()) {
+                                salida << nuevaLinea << "\n";
+                                salida.close();
+                                cout << "\nLista creada exitosamente.\n";
+                            } else {
+                                cout << "Error al guardar la nueva lista.\n";
+                            }
+                        } else {
+                            //existe combinar canciones
+                            int nExistentes = 0;
+                            char** cancionesExistentes = listaFav.obtenerCanciones(idx, nExistentes);
+
+                            //obtener string join()
+                            string existentesStr = "";
+                            if (nExistentes > 0) {
+                                existentesStr = listaFav.join(cancionesExistentes, nExistentes, ',');
+                            }
+
+                            //liberar memoria cancionesExistentes
+                            for (int i = 0; i < nExistentes; i++)
+                                delete[] cancionesExistentes[i];
+                            delete[] cancionesExistentes;
+
+                            //si no hay usar nuevasCanciones
+                            string combinado;
+                            if (existentesStr.empty())
+                                combinado = nuevasCanciones;
+                            else
+                                combinado = existentesStr + "," + nuevasCanciones;
+
+                            int nTotalTmp = 0;
+                            char** arrTotalTmp = listaFav.split(combinado, nTotalTmp, ',');
+
+                            char** unicos = new char*[nTotalTmp];
+                            int nUnicos = 0;
+                            for (int i = 0; i < nTotalTmp; i++) {
+                                bool ya = false;
+                                for (int j = 0; j < nUnicos; j++) {
+                                    if (string(unicos[j]) == string(arrTotalTmp[i])) { ya = true; break; }
+                                }
+                                if (!ya) {
+                                    //duplicar cadena para unicos
+                                    size_t len = strlen(arrTotalTmp[i]);
+                                    unicos[nUnicos] = new char[len + 1];
+                                    strcpy(unicos[nUnicos], arrTotalTmp[i]);
+                                    nUnicos++;
+                                }
+                            }
+
+                            //liberar arrTotalTmp
+                            for (int i = 0; i < nTotalTmp; i++)
+                                delete[] arrTotalTmp[i];
+                            delete[] arrTotalTmp;
+
+                            //actualizamos línea del usuario
+                            listaFav.actualizarLinea(idx, unicos, nUnicos);
+                            if (!listaFav.guardarArchivo()) {
+                                cout << "Error al guardar los cambios en ListaFavoritos.csv\n";
+                            } else {
+                                cout << "\nLista actualizada correctamente.\n";
+                            }
+
+                            //liberar memoria unicos
+                            for (int i = 0; i < nUnicos; i++)
+                                delete[] unicos[i];
+                            delete[] unicos;
+                        }
+
+                        break;
+                    }
+                    case 2:
+                        cout << "\n no dio. \n";
+                        break;
+                    case 3:
+                        cout << "\n no dio \n";
+                        break;
+                    case 0:
+                        cout << "\nVolviendo al menú Premium...\n";
+                        break;
+                    default:
+                        cout << "\nOpción no válida.\n";
+                        break;
+                    }
+                }
+            }
             else if (opcion != 0)
                 cout << "\nOpción no válida.\n";
         }
     }
-
     cout << "\n Gracias por usar UdeATunes.\n";
     return 0;
 }

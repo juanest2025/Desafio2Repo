@@ -5,7 +5,7 @@
 #include <cstdlib>
 using namespace std;
 
-// Liberar memoria dinámica
+//liberar memoria dinámica
 void ActualizacionDatos::liberarMemoria() {
     if (lineas) {
         for (int i = 0; i < numLineas; i++)
@@ -15,16 +15,16 @@ void ActualizacionDatos::liberarMemoria() {
     }
 }
 
-// Constructor
+//constructor
 ActualizacionDatos::ActualizacionDatos(const char* file)
     : lineas(nullptr), numLineas(0), filename(file) {}
 
-// Destructor
+//destructor
 ActualizacionDatos::~ActualizacionDatos() {
     liberarMemoria();
 }
 
-// Cargar archivo CSV a memoria dinámica
+//cargar archivo CSV a memoria dinámica
 bool ActualizacionDatos::cargarArchivo() {
     ifstream entradaCount(filename);
     if (!entradaCount) {
@@ -66,7 +66,7 @@ bool ActualizacionDatos::cargarArchivo() {
     return true;
 }
 
-// Actualizar campo "veces_reproducida"
+//actualizar campo "veces_reproducida"
 bool ActualizacionDatos::actualizarReproducciones(const char* idBuscado, int incremento) {
     if (!lineas) return false;
 
@@ -122,7 +122,7 @@ bool ActualizacionDatos::actualizarReproducciones(const char* idBuscado, int inc
     return encontrado;
 }
 
-// Guardar los cambios en el archivo CSV
+//guardar los cambios en el archivo CSV
 bool ActualizacionDatos::guardarArchivo() {
     if (!lineas) return false;
 
@@ -140,35 +140,3 @@ bool ActualizacionDatos::guardarArchivo() {
 }
 
 
-#include <iostream>
-#include "ActualizacionDatos.h"
-using namespace std;
-/*
-int main() {
-    ActualizacionDatos datos("canciones2.csv");
-
-    if (!datos.cargarArchivo()) {
-        cout << "No se pudo cargar el archivo.\n";
-        return 1;
-    }
-
-    char idBuscado[10];
-    cout << "Ingrese ID de canción: ";
-    cin >> idBuscado;
-
-    int incremento;
-    cout << "Ingrese incremento de reproducciones: ";
-    cin >> incremento;
-
-    if (datos.actualizarReproducciones(idBuscado, incremento)) {
-        if (datos.guardarArchivo())
-            cout << "Archivo actualizado correctamente.\n";
-        else
-            cout << "Error al guardar archivo.\n";
-    } else {
-        cout << "ID no encontrado.\n";
-    }
-
-    return 0;
-}
-*/

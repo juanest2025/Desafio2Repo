@@ -4,19 +4,19 @@
 #include <cstring>
 using namespace std;
 
-// Constructor
+//constructor
 ListaFavoritos::ListaFavoritos(const string& nombreArchivo) {
     archivo = nombreArchivo;
     numLineas = 0;
 }
 
-// Destructor
+//destructor
 ListaFavoritos::~ListaFavoritos() {
     for (int i = 0; i < numLineas; i++)
         delete[] lineas[i];
 }
 
-// Métodos privados
+//métodos privados
 int ListaFavoritos::contarTokens(const string& str, char delim) {
     int count = 1;
     for (size_t i = 0; i < str.length(); i++)
@@ -90,7 +90,7 @@ char** ListaFavoritos::obtenerCanciones(int idx, int& n) {
 void ListaFavoritos::actualizarLinea(int idx, char** canciones, int n) {
     string linea(lineas[idx]);
 
-    // Extraer id y nombre_lista
+    //extraer id y nombre_lista
     size_t pos1 = linea.find(';');
     size_t pos2 = linea.find(';', pos1 + 1);
 
@@ -98,7 +98,7 @@ void ListaFavoritos::actualizarLinea(int idx, char** canciones, int n) {
     string nombre_lista = linea.substr(pos1 + 1, pos2 - pos1 - 1);
     string nuevas_canciones = join(canciones, n, ',');
 
-    // Reconstruir línea
+    //reconstruir línea
     string nueva_linea = id + ";" + nombre_lista + ";" + nuevas_canciones;
 
     delete[] lineas[idx];
@@ -134,7 +134,7 @@ bool ListaFavoritos::guardarArchivo() {
     return true;
 }
 
-// Métodos públicos
+//métodos públicos
 bool ListaFavoritos::copiarCanciones(const string& usuario_destino, const string& usuario_origen) {
     if (!cargarArchivo())
         return false;
@@ -147,12 +147,12 @@ bool ListaFavoritos::copiarCanciones(const string& usuario_destino, const string
         return false;
     }
 
-    // Obtener canciones de ambos usuarios
+    //obtener canciones de ambos usuarios
     int n_origen, n_destino;
     char** canciones_origen = obtenerCanciones(idx_origen, n_origen);
     char** canciones_destino = obtenerCanciones(idx_destino, n_destino);
 
-    // Agregar solo las canciones no repetidas
+    //agregar solo las canciones no repetidas
     int cancionesAgregadas = 0;
     for (int i = 0; i < n_origen; i++) {
         if (!existe(canciones_destino, n_destino, string(canciones_origen[i]))) {
@@ -170,10 +170,10 @@ bool ListaFavoritos::copiarCanciones(const string& usuario_destino, const string
     }
     delete[] canciones_origen;
 
-    // Actualizar la línea del usuario destino
+    //actualizar la línea del usuario destino
     actualizarLinea(idx_destino, canciones_destino, n_destino);
 
-    // Liberar memoria
+    //liberar memoria
     for (int i = 0; i < n_destino; i++)
         delete[] canciones_destino[i];
     delete[] canciones_destino;

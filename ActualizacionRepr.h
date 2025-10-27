@@ -9,11 +9,11 @@ private:
     void liberarMemoria();
 
 public:
-    // Constructor y destructor
+    //constructor y destructor
     ActualizacionDatos(const char* file);
     ~ActualizacionDatos();
 
-    // Métodos públicos
+    //metodos publicos
     bool cargarArchivo();
     bool actualizarReproducciones(const char* idBuscado, int incremento);
     bool guardarArchivo();

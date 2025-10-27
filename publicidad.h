@@ -11,12 +11,12 @@ using namespace std;
 
 class Publicidad {
 private:
-    char* mensajes[50];   // arreglo de punteros a char
-    int contador;          // cantidad de mensajes cargados
+    char* mensajes[50];   //arreglo de punteros a char
+    int contador;          //cantidad mensajes cargados
 
 public:
-    Publicidad();          // constructor
-    ~Publicidad();         // destructor
+    Publicidad();          //constructor
+    ~Publicidad();         //destructor
 
     bool cargarMensajes(const string& nombreArchivo);
     void mostrarMensajeAleatorio() const;

@@ -6,13 +6,14 @@
 #include <ctime>
 #include "BaseDatosCancion.h"
 #include "GestorDatos.h"
+#include "ListaFavoritos.h"
 using namespace std;
 
 class ReproduccionPremium {
 private:
     BaseDatosCancion* base;
     GestorDatos* gestor;
-    int historial[4]; // últimas 4 canciones reproducidas
+    int historial[4]; //ultimas 4 canciones reproducidas
     int indiceHistorial;
     int actual;
     bool repetir;

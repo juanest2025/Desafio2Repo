@@ -1,4 +1,0 @@
-#ifndef BASEDATOSAAF_H
-#define BASEDATOSAAF_H
-
-#endif // BASEDATOSAAF_H

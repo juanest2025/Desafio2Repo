@@ -14,7 +14,7 @@ private:
     BaseDatosCancion* base;
     GestorDatos* gestor;
 
-    void esperarSegundos(int segundos); // simulador de reproducción
+    void esperarSegundos(int segundos); //simulador reproducción
 
 public:
     ReproduccionEstandar();

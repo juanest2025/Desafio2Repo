@@ -2,7 +2,7 @@
 
 Publicidad::Publicidad() {
     contador = 0;
-    srand(time(0)); // inicializa semilla aleatoria
+    srand(time(0)); //inicializa semilla aleatoria
     for (int i = 0; i < 50; i++) {
         mensajes[i] = nullptr;
     }
@@ -15,7 +15,7 @@ Publicidad::~Publicidad() {
 }
 
 int Publicidad::getNumAle(int limite) const {
-    return rand() % limite; // número entre 0 y limite-1
+    return rand() % limite; //número entre 0 y limite-1
 }
 
 bool Publicidad::cargarMensajes(const string& nombreArchivo) {
@@ -26,7 +26,17 @@ bool Publicidad::cargarMensajes(const string& nombreArchivo) {
     }
 
     string linea;
+    bool primeraLinea = true; //para saltar encabezado
     while (getline(archivo, linea) && contador < 50) {
+        if (primeraLinea) { //omitir encabezado
+            primeraLinea = false;
+            continue;
+        }
+
+        //ignorar líneas vacías
+        if (linea.size() < 3) continue;
+
+        //guardar línea completa
         mensajes[contador] = new char[linea.length() + 1];
         for (size_t i = 0; i < linea.length(); i++) {
             mensajes[contador][i] = linea[i];
@@ -45,23 +55,23 @@ void Publicidad::mostrarMensajeAleatorio() const {
         return;
     }
 
-    string mensaje2;
-    string prioridad, mensajePros;
     int indice = getNumAle(contador);
-    if (indice == 0){
-        indice = 1;
-        mensaje2 = mensajes[indice];
+    string mensaje2 = mensajes[indice];
+
+    //separar prioridad y mensaje
+    string prioridad = "", mensajePros = "";
+    bool antesDelPuntoYComa = true;
+    for (int i = 0; mensaje2[i] != '\0'; i++) {
+        if (mensaje2[i] == ';') {
+            antesDelPuntoYComa = false;
+            continue;
+        }
+        if (antesDelPuntoYComa)
+            prioridad += mensaje2[i];
+        else
+            mensajePros += mensaje2[i];
     }
-    else {
 
-         mensaje2 = mensajes[indice];
-    }
-
-    stringstream ss(mensaje2);
-    getline(ss, prioridad, ';');
-    getline(ss, mensajePros, ';');
-
-    cout << "Mensaje #" << indice << endl;
-    cout << "Prioridad: " << prioridad << endl;
-    cout << "Contenido: " << mensajePros << endl;
+    cout << "\n [PUBLICIDAD - Prioridad " << prioridad << "]\n";
+    cout << mensajePros << endl;
 }
