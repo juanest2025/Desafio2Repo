@@ -1,6 +1,6 @@
-# UdeATunes - Sistema de Streaming Institucional 
+# Link del video YouTube: https://www.youtube.com/watch?v=9MlHxC9tEaw 
 
-Link del video YouTube: 
+# UdeATunes - Sistema de Streaming Institucional 
 
 # Integrantes de equipo:
     - Juan Esteban Velez Hincapie
@@ -8,7 +8,7 @@ Link del video YouTube:
 
 ## Descripción
 
-**UdeATunes** es una plataforma de servicio de streaming musical desarrollada en C++ utilizando programación orientada a objetos (POO), sin hacer uso de la STL (Standard Template Library). El "platarma en terminal" el funcionamiento de un servicio de streaming real, permitiendo gestionar usuarios, artistas, álbumes, canciones y publicidad, con funcionalidades específicas según el tipo de membresía del usuario.
+**UdeATunes** es una plataforma de servicio de streaming musical desarrollada en C++ utilizando programación orientada a objetos (POO), sin hacer uso de la STL (Standard Template Library). El "plataforma en terminal" el funcionamiento de un servicio de streaming real, permitiendo gestionar usuarios, artistas, álbumes, canciones y publicidad, con funcionalidades específicas según el tipo de membresía del usuario.
 
 ## Características Principales
 
